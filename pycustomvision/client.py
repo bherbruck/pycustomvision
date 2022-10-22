@@ -101,7 +101,7 @@ class CustomVisionClient:
     def write_annotation(self, annotation: Annotation, path: str, names: Dict[int, str]):
         yolo_labels = annotation_to_yolo(
             annotation, labels=names)
-        image = self.get_image(annotation.original_image_uri)
+        image = self.get_image(annotation.resized_image_uri)
 
         yolo_label_path = f'{path}/labels/{annotation.id}.txt'
         image_path = f'{path}/images/{annotation.id}.jpg'
